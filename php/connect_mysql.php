@@ -18,5 +18,4 @@ if (!$db_selected)
   die(db_name . ' is inavailable. Error: ' . mysql_error());
 }
 
-echo 'Connected to database.';
 ?>

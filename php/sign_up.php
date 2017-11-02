@@ -16,5 +16,7 @@ if (!mysql_query($sign_up_query))
     die('Error: ' . mysql_error());
 }
 
+echo "You are Signed Up. Now Sign In";
+
 mysql_close();
 ?>
