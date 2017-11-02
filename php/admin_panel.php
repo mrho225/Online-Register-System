@@ -34,6 +34,5 @@ if (!mysql_query($sign_up_query))
 {
     die('Error: ' . mysql_error());
 }
-
 mysql_close();
 ?>
