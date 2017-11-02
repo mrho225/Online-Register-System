@@ -27,7 +27,7 @@
     .form-module .form {
         padding: 35px;    }
 
-    .form-module input[type="text"], .form-module input[type="password"], .form-module input[type="email"] {
+    .form-module input[type="text"], .form-module input[type="password"], .form-module input[type="email"], .form-module input[type="number"] {
         outline: none;
         display: block;
         width: 100%;
