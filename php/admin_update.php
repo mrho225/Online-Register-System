@@ -7,28 +7,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	{
 		case 1:
 		echo "Hey Admin";
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$rank = $_POST['rank'];
-		$address = $_POST['address'];
-		$phone = $_POST['phone'];
-		$email = $_POST['email'];
-		$lastsession = date('d.m.y h:i:s');
-		$update_query = mysql_query("UPDATE member SET password='$password', rank='$rank', address='$address', phone='$phone', email='$email' WHERE username='$username'");
-		header("Location: ../html/admin_search.html");
 		//header("Location: ./member_zone.php");
 		break;
 		case 2:
 		echo "Hey Staff";
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$rank = $_POST['rank'];
-		$address = $_POST['address'];
-		$phone = $_POST['phone'];
-		$email = $_POST['email'];
-		$lastsession = date('d.m.y h:i:s');
-		$update_query = mysql_query("UPDATE member SET password='$password', rank='$rank', address='$address', phone='$phone', email='$email' WHERE username='$username'");
-		header("Location: ../html/admin_search.html");
 		//header("Location: ./member_zone.php");
 		break;
 		case 3:
@@ -36,5 +18,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		header("Location: ./member_zone.php");
 		break;
 	}
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$rank = $_POST['rank'];
+	$address = $_POST['address'];
+	$phone = $_POST['phone'];
+	$email = $_POST['email'];
+	$lastsession = date('d.m.y h:i:s');
+	$update_query = mysql_query("UPDATE member SET password='$password', rank='$rank', address='$address', phone='$phone', email='$email' WHERE username='$username'");
+	header("Location: ./admin_panel.php");
 }
 ?>

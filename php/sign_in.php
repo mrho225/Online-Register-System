@@ -20,15 +20,15 @@ if ($sign_in_check && mysql_num_rows($sign_in_check) > 0) {
 	{
 		case 1:
 		echo "Hey Admin";
-		header("Location: ./admin_input.php");
+		header("Location: ./admin_panel.php");
 		break;
 		case 2:
 		echo "Hey Staff";
-		header("Location: ./admin_input.php");
+		header("Location: ./admin_panel.php");
 		break;
 		case 3:
 		echo "Hey Member";
-		header("Location: ./admin_input.php");
+		header("Location: ./admin_panel.php");
 		break;
 	}
 } else {

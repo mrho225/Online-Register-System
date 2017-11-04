@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // VERIFY MEMBER RANK TO GRANT ACCESS
 require_once('./connect_mysql.php');
 session_start();
@@ -19,6 +19,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		break;
 	}
 }
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+	{
+		if (isset($_POST['list'])) {
+			header("Location: ./admin_list.php");
+		}
+		elseif (isset($_POST['update'])) {
+			header("Location: ./admin_input.php");
+		}
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,15 +38,14 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 </head>
 <body>
     <!-- START ADMIN SEARCH USER MODULE -->
-    <h1>Admin Panel - Search User</h1>
+    <h1>Admin Control Panel</h1>
     <div class="form-module">
 
         <div class="form">
-            <h2>Find user</h2>
-            <form action="../php/admin_search.php" method="post">
-                <input type="text" name="username" placeholder="Enter username" required=" ">
-
-                <input type="submit" value="Search">
+            <h2>Admin Control Panel</h2>
+            <form action="./admin_panel.php" method="post">
+                <button name="list" />List all users</button>
+                <button name="update" />Search & Update</button>
             </form>
         </div>
     </div>
