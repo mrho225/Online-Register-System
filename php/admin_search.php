@@ -7,40 +7,31 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	{
 		case 1:
 		echo "Hey Admin";
-		$username = $_POST['username'];
-		$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
-		while ($row = mysql_fetch_array ($search_query))
-		{
-			$username = $row['username'];
-			$password = $row['password'];
-			$rank = $row['rank'];
-			$address = $row['address'];
-			$phone = $row['phone'];
-			$email = $row['email'];
-			$lastsession = $row['lastsession'];
-		}
+		//header("Location: ./member_zone.php");
 		break;
 		case 2:
 		echo "Hey Staff";
-		$username = $_POST['username'];
-		$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
-		while ($row = mysql_fetch_array ($search_query))
-		{
-			$username = $row['username'];
-			$password = $row['password'];
-			$rank = $row['rank'];
-			$address = $row['address'];
-			$phone = $row['phone'];
-			$email = $row['email'];
-			$lastsession = $row['lastsession'];
-		}
 		//header("Location: ./member_zone.php");
 		break;
 		case 3:
 		echo "Hey Member";
 		header("Location: ./member_zone.php");
 		break;
+		default:
+		header("Location: ../html/sign_in.html");
 	}
+	$username = $_POST['username'];
+	$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
+	while ($row = mysql_fetch_array ($search_query))
+		{
+			$username = $row['username'];
+			$password = $row['password'];
+			$rank = $row['rank'];
+			$address = $row['address'];
+			$phone = $row['phone'];
+			$email = $row['email'];
+			$lastsession = $row['lastsession'];
+		}
 }
 
 ?>
@@ -57,7 +48,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     <div class="form-module">
 
         <div class="form">
-            <h2>Create an account</h2>
+            <h2>User details</h2>
             <form action="../php/admin_update.php" method="post">
                 <input type="text" name="username" placeholder="Username" value ="<?php echo $username; ?>">
                 <input type="password" name="password" placeholder="Password" value ="<?php echo $password; ?>">

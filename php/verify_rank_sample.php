@@ -17,6 +17,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		echo "Hey Member";
 		header("Location: ./member_zone.php");
 		break;
+		default:
+		header("Location: ../html/sign_in.html");
 	}
 }
 ?>
