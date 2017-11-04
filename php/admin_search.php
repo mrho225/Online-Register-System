@@ -1,23 +1,46 @@
 <?php
+// VERIFY MEMBER RANK TO GRANT ACCESS
 require_once('./connect_mysql.php');
 session_start();
-echo $_SESSION['rank'];
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $$_SESSION['rank'] == 1 | $_SESSION['rank'] == 2) {
-
-	$username = $_POST['username'];
-	$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
-	while ($row = mysql_fetch_array ($search_query))
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+	switch ($_SESSION['rank'])
 	{
-		$username = $row['username'];
-		$password = $row['password'];
-		$rank = $row['rank'];
-		$address = $row['address'];
-		$phone = $row['phone'];
-		$email = $row['email'];
-		$lastsession = $row['lastsession'];
+		case 1:
+		echo "Hey Admin";
+		$username = $_POST['username'];
+		$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
+		while ($row = mysql_fetch_array ($search_query))
+		{
+			$username = $row['username'];
+			$password = $row['password'];
+			$rank = $row['rank'];
+			$address = $row['address'];
+			$phone = $row['phone'];
+			$email = $row['email'];
+			$lastsession = $row['lastsession'];
+		}
+		break;
+		case 2:
+		echo "Hey Staff";
+		$username = $_POST['username'];
+		$search_query = mysql_query("SELECT * FROM member WHERE username='$username'");
+		while ($row = mysql_fetch_array ($search_query))
+		{
+			$username = $row['username'];
+			$password = $row['password'];
+			$rank = $row['rank'];
+			$address = $row['address'];
+			$phone = $row['phone'];
+			$email = $row['email'];
+			$lastsession = $row['lastsession'];
+		}
+		//header("Location: ./member_zone.php");
+		break;
+		case 3:
+		echo "Hey Member";
+		header("Location: ./member_zone.php");
+		break;
 	}
-} else {
-	header("Location: ./member_zone.php");
 }
 
 ?>
@@ -29,7 +52,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $$_SESSION[
     <link href="../css/admin_panel.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- START REGISTER MODULE -->
+    <!-- START ADMIN SHOW USER DETAIL MODULE -->
     <h1>Admin Panel - Update User</h1>
     <div class="form-module">
 
@@ -49,6 +72,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $$_SESSION[
 
     </div>
 
-    <!-- END REGISTER MODULE -->
+    <!-- END ADMIN SHOW USER DETAIL MODULE -->
 </body>
 </html>

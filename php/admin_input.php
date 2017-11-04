@@ -1,11 +1,23 @@
 ﻿<?php
+// VERIFY MEMBER RANK TO GRANT ACCESS
 require_once('./connect_mysql.php');
 session_start();
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && ($$_SESSION['rank'] == 1 || $_SESSION['rank'] == 2) {
-echo $_SESSION['rank'];
-}
-else {
-header("Location: ../php/member_zone.php");
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+	switch ($_SESSION['rank'])
+	{
+		case 1:
+		echo "Hey Admin";
+		//header("Location: ./member_zone.php");
+		break;
+		case 2:
+		echo "Hey Staff";
+		//header("Location: ./member_zone.php");
+		break;
+		case 3:
+		echo "Hey Member";
+		header("Location: ./member_zone.php");
+		break;
+	}
 }
 ?>
 
@@ -16,7 +28,7 @@ header("Location: ../php/member_zone.php");
     <link href="../css/admin_panel.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- START REGISTER MODULE -->
+    <!-- START ADMIN SEARCH USER MODULE -->
     <h1>Admin Panel - Search User</h1>
     <div class="form-module">
 
@@ -30,6 +42,6 @@ header("Location: ../php/member_zone.php");
         </div>
     </div>
 
-    <!-- END REGISTER MODULE -->
+    <!-- END ADMIN SEARCH USER MODULE -->
 </body>
 </html>
