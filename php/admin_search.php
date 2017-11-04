@@ -33,6 +33,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			$lastsession = $row['lastsession'];
 		}
 }
+else {
+	header("Location: ../html/sign_in.html");
+}
 
 ?>
 

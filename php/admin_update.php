@@ -30,4 +30,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	$update_query = mysql_query("UPDATE member SET password='$password', rank='$rank', address='$address', phone='$phone', email='$email' WHERE username='$username'");
 	header("Location: ./admin_panel.php");
 }
+else {
+	header("Location: ../html/sign_in.html");
+}
 ?>

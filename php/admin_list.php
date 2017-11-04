@@ -21,6 +21,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 		header("Location: ../html/sign_in.html");
 	}
 }
+else {
+	header("Location: ../html/sign_in.html");
+}
 ?>
 
 <?php
