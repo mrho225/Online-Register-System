@@ -32,6 +32,9 @@ else {
 		elseif (isset($_POST['update'])) {
 			header("Location: ./admin_input.php");
 		}
+		elseif (isset($_POST['order'])) {
+			header("Location: ./order.php");
+		}
 		elseif (isset($_POST['sign_out'])) {
 			header("Location: ./sign_out.php");
 		}
@@ -54,6 +57,7 @@ else {
             <form action="./admin_panel.php" method="post">
                 <button name="list" />List all users</button>
                 <button name="update" />Search & Update</button>
+                <button name="order" />My order</button>
 				<button name="sign_out" />Sign Out</button>
             </form>
         </div>

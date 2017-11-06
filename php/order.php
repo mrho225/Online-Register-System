@@ -24,41 +24,29 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 else {
 	header("Location: ../html/sign_in.html");
 }
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-	{
-		if (isset($_POST['profile'])) {
-			header("Location: ./user_profile.php");
-		}
-		elseif (isset($_POST['order'])) {
-			header("Location: ./order.php");
-		}
-		elseif (isset($_POST['sign_out'])) {
-			header("Location: ./sign_out.php");
-		}
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>User Panel</title>
+    <title>My Order</title>
     <link href="../css/admin_panel.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- START USER PANEL MODULE -->
-    <h1>User Panel</h1>
+    <!-- START ORDER MODULE -->
+    <h1>My Order</h1>
     <div class="form-module">
 
         <div class="form">
-            <h2>User Panel</h2>
-            <form action="./user_panel.php" method="post">
-                <button name="profile" />View profile</button>
-                <button name="order" />My order</button>
-                <button name="sign_out" />Sign Out</button>
+            <h2>This is meant to be linked to Product Management and let members make order which is not finished by my group member as planned.</h2>
+            <form action="./order.php" method="post">
+                <input type="text" name="username" placeholder="Enter order details" required=" ">
+
+                <input type="submit" value="Check Out">
             </form>
         </div>
     </div>
 
-    <!-- END ADMIN SEARCH USER MODULE -->
+    <!-- END ORDER MODULE -->
 </body>
 </html>
