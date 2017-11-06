@@ -28,11 +28,10 @@ if ($sign_in_check && mysql_num_rows($sign_in_check) > 0) {
 		break;
 		case 3:
 		echo "Hey Member";
-		header("Location: ./admin_panel.php");
+		header("Location: ./user_panel.php");
 		break;
 	}
 } else {
-    echo 'Wrong password!';
+    echo 'Wrong password or the user does not exist.';
 }
-mysql_close();
 ?>
