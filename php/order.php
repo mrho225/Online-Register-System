@@ -6,15 +6,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 	switch ($_SESSION['rank'])
 	{
 		case 1:
-		echo "Hey Admin";
+		echo "Verify member rank module is running: Hey Admin";
 		//header("Location: ./member_zone.php");
 		break;
 		case 2:
-		echo "Hey Staff";
+		echo "Verify member rank module is running: Hey Staff";
 		//header("Location: ./member_zone.php");
 		break;
 		case 3:
-		echo "Hey Member";
+		echo "Verify member rank module is running: Hey Member";
 		//header("Location: ./member_zone.php");
 		break;
 		default:

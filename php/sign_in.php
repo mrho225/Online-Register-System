@@ -19,15 +19,15 @@ if ($sign_in_check && mysql_num_rows($sign_in_check) > 0) {
 	switch ($_SESSION['rank'])
 	{
 		case 1:
-		echo "Hey Admin";
+		echo "Verify member rank module is running: Hey Admin";
 		header("Location: ./admin_panel.php");
 		break;
 		case 2:
-		echo "Hey Staff";
+		echo "Verify member rank module is running: Hey Staff";
 		header("Location: ./admin_panel.php");
 		break;
 		case 3:
-		echo "Hey Member";
+		echo "Verify member rank module is running: Hey Member";
 		header("Location: ./user_panel.php");
 		break;
 	}
